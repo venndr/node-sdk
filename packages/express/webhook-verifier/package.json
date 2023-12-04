@@ -7,8 +7,10 @@
   ],
   "main": "dist/webhook-verifier.js",
   "homepage": "https://github.com/venndr/node-sdk/blob/main/express/webhook-verifier/README.md",
+  "publishConfig": {
+    "access": "public"
+  },
   "scripts": {
-    "build": "tsc",
     "test": "jest",
     "prerelease": "npm test && tsc",
     "release": "npm publish --public",
