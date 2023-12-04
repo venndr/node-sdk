@@ -1,5 +1,5 @@
 {
-  "name": "@venndr/webhook-verifier",
+  "name": "@venndr/express-webhook-verifier",
   "version": "1.0.0",
   "description": "Express middleware for verifying Venndr webhook signatures",
   "files": [
