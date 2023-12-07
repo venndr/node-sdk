@@ -3,5 +3,13 @@
   "version": "independent",
   "packages": [
     "packages/express/*"
-  ]
+  ],
+  "command": {
+    "publish": {
+      "conventionalCommits": true
+    },
+    "version": {
+      "conventionalCommits": true
+    }
+  }
 }
