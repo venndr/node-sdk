@@ -5,7 +5,7 @@ Use this middleware to [verify webhook payloads](https://developer.musicglue.com
 ## Installation
 
 ```
-npm install --save @venndr/webhook-verifier
+npm install --save @venndr/express-webhook-verifier
 ```
 
 ## Usage
@@ -18,7 +18,7 @@ On successful verification the parsed payload is assigned to `request.body`. On 
 
 ```typescript
 import express from "express";
-import { keyFetcher, verifyWebhookSignature } from "@venndr/node-sdk/express/webhook-verifier";
+import { keyFetcher, verifyWebhookSignature } from "@venndr/express-webhook-verifier";
 
 const app = express();
 
