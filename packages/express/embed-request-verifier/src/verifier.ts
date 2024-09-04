@@ -15,6 +15,10 @@ export interface VerifierOptions {
 }
 
 export const verifyEmbedRequest = (fetchKey: KeyFetcher, options: VerifierOptions = {}) => {
+  if (process.env.UNSAFE_SKIP_EMBED_VERIFY != null) {
+    return (_: any, __: any, next: NextFunction) => next();
+  }
+
   const maxAge: number = options.maxAge ?? defaultSigMaxAge;
 
   return async (rq: ExRequest, _: any, next: NextFunction) => {
