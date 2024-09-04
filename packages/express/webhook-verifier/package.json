@@ -1,6 +1,6 @@
 {
   "name": "@venndr/express-webhook-verifier",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Express middleware for verifying Venndr webhook signatures",
   "files": [
     "dist/*"
@@ -26,8 +26,8 @@
   "author": "Music Glue Tech <tech@musicglue.com>",
   "license": "ISC",
   "dependencies": {
-    "express": ">=4.17.0",
-    "@venndr/public-key-fetcher": "1.0.0"
+    "@venndr/public-key-fetcher": "^1.0.1",
+    "express": ">=4.17.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
