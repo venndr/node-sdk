@@ -12,8 +12,9 @@
   },
   "scripts": {
     "test": "jest",
+    "prebuild": "npm test",
     "build": "tsc",
-    "prerelease": "npm test && npm run build",
+    "prerelease": "npm run build",
     "release": "npm publish --public",
     "preversion": "npm test"
   },
