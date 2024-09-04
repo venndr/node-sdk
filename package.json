@@ -2,7 +2,9 @@
   "name": "root",
   "private": true,
   "workspaces": [
-    "packages/*"
+    "packages/express/webhook-verifier",
+    "packages/express/embed-verifier",
+    "packages/universal/public-key-fetcher"
   ],
   "devDependencies": {
     "lerna": "^8.0.2"
