@@ -11,6 +11,7 @@
 /// <reference lib="dom" />
 
 import * as crypto from "crypto";
+import { KeyFetcher } from "@venndr/public-key-fetcher";
 import { Request as ExRequest, Response as ExResponse, NextFunction } from "express";
 
 const messageHeaders = [
@@ -59,10 +60,9 @@ export const verifyWebhookSignature =
     fetchKey(keyVersion)
       .then((key) => {
         const signature = Buffer.from(req.header("venndr-signature") ?? "", "base64");
-        const message = Buffer.concat([
-          Buffer.from(messageHeaders.reduce((acc, header) => acc + req.header(header), "")),
-          body,
-        ]);
+        const message = Buffer.concat(
+          messageHeaders.map((h) => Buffer.from(String(req.header(h)))).concat([body]),
+        );
 
         if (!crypto.verify("sha256", message, key, signature)) {
           next(new Error("invalid webhook: signature validation failed"));
@@ -75,52 +75,3 @@ export const verifyWebhookSignature =
       })
       .catch(next);
   };
-
-type Fetch = typeof fetch;
-
-export interface KeyCache<
-  KT extends string = string,
-  VT extends crypto.KeyObject = crypto.KeyObject,
-> {
-  get(k: KT): Promise<VT | null | undefined> | VT | null | undefined;
-  set(k: KT, v: VT): void;
-}
-
-export type KeyFetcher = (version: string) => Promise<crypto.KeyObject>;
-
-export interface KeyFetcherOptions {
-  baseURL?: string;
-  cache?: KeyCache;
-  fetch?: Fetch;
-}
-
-const keysBaseURL = "https://api.venndr.cloud/.well-known/public-keys";
-
-export const keyFetcher = (options: KeyFetcherOptions = {}): KeyFetcher => {
-  const fetch = options?.fetch ?? global.fetch;
-  const keyCache = options?.cache ?? new Map<string, crypto.KeyObject>();
-  const normalBaseURL = (options?.baseURL ?? keysBaseURL).replace(/\/$/, "");
-
-  return (version: string) =>
-    new Promise(async (res) =>
-      res(
-        (await keyCache.get(version)) ??
-          fetch(`${normalBaseURL}/${version}`).then(async (r) => {
-            if (!r.ok) {
-              return Promise.reject(new Error(`error fetching key: ${r.status}`));
-            }
-
-            if (!r.body) {
-              return Promise.reject(new Error("error fetching key: empty response"));
-            }
-
-            const keyBytes = await r.arrayBuffer();
-            const key = crypto.createPublicKey(Buffer.from(keyBytes));
-
-            keyCache.set(version, key);
-
-            return key;
-          }),
-      ),
-    );
-};

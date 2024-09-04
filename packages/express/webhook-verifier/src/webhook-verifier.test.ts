@@ -1,6 +1,7 @@
-import { Request as ExRequest } from "express";
-import { verifyWebhookSignature, keyFetcher, KeyFetcher } from "./webhook-verifier";
 import * as crypto from "crypto";
+import { Request as ExRequest } from "express";
+import { verifyWebhookSignature } from "./webhook-verifier";
+import type { KeyFetcher } from "@venndr/public-key-fetcher";
 
 const testKey = `-----BEGIN RSA PUBLIC KEY-----
 MIIBCgKCAQEAnzKquBKihkXANnvanftNv/MG3Zd4tMMj+AByMiLFrBGpiOnDfPuh
@@ -103,59 +104,5 @@ describe("webhook verifier", () => {
 
     expect(nextFn).toHaveBeenCalled();
     expect(nextFn.mock.calls[0][0]).toBeInstanceOf(Error);
-  });
-});
-
-describe("key fetcher", () => {
-  test("it caches keys on fetch by default", async () => {
-    const res: Partial<Response> = {
-      get ok() {
-        return true;
-      },
-
-      arrayBuffer() {
-        return Promise.resolve(new TextEncoder().encode(testKey).buffer);
-      },
-
-      get body() {
-        return new ReadableStream<Uint8Array>({
-          start(c) {
-            c.enqueue(new TextEncoder().encode(testKey));
-            c.close();
-          },
-        });
-      },
-    };
-
-    const kf = jest.fn(() => Promise.resolve(res));
-    const f = keyFetcher({ fetch: kf as any });
-
-    await f("beep");
-    await f("boop");
-    await f("beep");
-    await f("boop");
-
-    expect(kf).toHaveBeenCalledTimes(2);
-  });
-
-  test("it returns error on a non-200 response", async () => {
-    const res: Partial<Response> = {
-      get ok() {
-        return false;
-      },
-      get status() {
-        return 404;
-      },
-      get body() {
-        return null;
-      },
-    };
-
-    const kf = jest.fn(() => Promise.resolve(res));
-    const f = keyFetcher({ fetch: kf as any });
-
-    await expect(() => f("boop")).rejects.toThrow();
-
-    expect(kf).toHaveBeenCalledTimes(1);
   });
 });

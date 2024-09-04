@@ -12,7 +12,8 @@
   },
   "scripts": {
     "test": "jest",
-    "prerelease": "npm test && tsc",
+    "build": "tsc",
+    "prerelease": "npm test && npm run build",
     "release": "npm publish --public",
     "preversion": "npm test"
   },
@@ -24,11 +25,12 @@
   "author": "Music Glue Tech <tech@musicglue.com>",
   "license": "ISC",
   "dependencies": {
-    "express": ">=4.17.0"
+    "express": ">=4.17.0",
+    "@venndr/public-key-fetcher": "1.0.0"
   },
   "devDependencies": {
     "@jest/globals": "^29.7.0",
-    "@tsconfig/node18": "^18.2.2",
+    "@tsconfig/node20": "^20.1.4",
     "@tsconfig/strictest": "^2.0.2",
     "@types/express": "^4.17.21",
     "@types/jest": "^29.5.10",
