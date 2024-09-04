@@ -1,0 +1,37 @@
+{
+  "name": "@venndr/embed-request-verifier",
+  "version": "1.0.0",
+  "description": "Express middleware for verifying Venndr app embed request signatures",
+  "main": "dist/verifier.js",
+  "files": [
+    "dist/*"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "scripts": {
+    "test": "jest",
+    "prebuild": "npm test",
+    "build": "tsc",
+    "prerelease": "npm run build",
+    "release": "npm publish --public",
+    "preversion": "npm test"
+  },
+  "keywords": ["venndr", "express"],
+  "author": "Music Glue <tech@musicglue.com>",
+  "license": "ISC",
+  "dependencies": {
+    "express": ">=4.17.0",
+    "@venndr/public-key-fetcher": "1.0.0"
+  },
+  "devDependencies": {
+    "@jest/globals": "^29.7.0",
+    "@tsconfig/node20": "^20.1.4",
+    "@tsconfig/strictest": "^2.0.5",
+    "@types/jest": "^29.5.12",
+    "jest": "^29.7.0",
+    "ts-jest": "^29.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
