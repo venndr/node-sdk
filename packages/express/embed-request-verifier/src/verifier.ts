@@ -10,7 +10,6 @@ function unescapeBase64url(str: string): string {
 const defaultSigMaxAge = 600;
 
 export interface VerifierOptions {
-  fetchKey?: KeyFetcher;
   maxAge?: number;
 }
 
