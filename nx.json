@@ -1,0 +1,26 @@
+{
+  "targetDefaults": {
+    "test": {
+      "cache": true,
+      "dependsOn": []
+    },
+    "build": {
+      "cache": true,
+      "dependsOn": [
+        "^build"
+      ],
+      "outputs": [
+        "{projectRoot}/dist"
+      ]
+    },
+    "prerelease": {
+      "dependsOn": []
+    },
+    "release": {
+      "dependsOn": []
+    },
+    "preversion": {
+      "dependsOn": []
+    }
+  }
+}
