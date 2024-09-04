@@ -5,7 +5,7 @@ This middleware verifies signatures in app embed requests coming from Venndr.
 ## Installation
 
 ```
-npm install --save @venndr/embed-request-verifier
+npm install --save @venndr/express-embed-request-verifier
 ```
 
 ## The key fetcher
@@ -30,7 +30,7 @@ interface VerifierOptions {
 
 ```typescript
 import express from "express";
-import { keyFetcher } from "@venndr/public-key-fetcher";
+import { keyFetcher } from "@venndr/express-public-key-fetcher";
 import { verifyEmbedRequest } from "@venndr/embed-request-verifier";
 
 const app = express();
