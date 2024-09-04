@@ -1,11 +1,7 @@
 import * as crypto from "crypto";
 import { KeyFetcher } from "@venndr/public-key-fetcher";
 import { Request as ExRequest, NextFunction } from "express";
-
-// source https://github.com/joaquimserafim/base64-url/blob/master/index.js
-function unescapeBase64url(str: string): string {
-  return (str + "===".slice((str.length + 3) % 4)).replace(/-/g, "+").replace(/_/g, "/");
-}
+import { unescape as unescapeBase64url } from "./base64url";
 
 const defaultSigMaxAge = 600;
 
