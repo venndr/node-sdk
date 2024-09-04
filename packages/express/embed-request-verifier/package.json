@@ -19,7 +19,8 @@
   },
   "keywords": [
     "venndr",
-    "express"
+    "express",
+    "venndr-node-sdk"
   ],
   "author": "Music Glue <tech@musicglue.com>",
   "license": "ISC",

@@ -21,7 +21,8 @@
   "keywords": [
     "venndr",
     "webhooks",
-    "express"
+    "express",
+    "venndr-node-sdk"
   ],
   "author": "Music Glue Tech <tech@musicglue.com>",
   "license": "ISC",
