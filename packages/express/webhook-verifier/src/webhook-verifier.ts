@@ -6,10 +6,6 @@
  * by preceding this middleware with the `express.raw()` middleware.
  */
 
-// this line is required, because `fetch` is not yet in `@types/node`. it is still in experimental
-// state, but it's stable enough for our purposes.
-/// <reference lib="dom" />
-
 import * as crypto from "crypto";
 import { KeyFetcher } from "@venndr/public-key-fetcher";
 import { Request as ExRequest, Response as ExResponse, NextFunction } from "express";
