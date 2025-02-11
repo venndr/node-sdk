@@ -1,6 +1,6 @@
 {
   "name": "@venndr/express-embed-request-verifier",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Express middleware for verifying Venndr app embed request signatures",
   "main": "dist/verifier.js",
   "files": [

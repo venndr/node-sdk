@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.0.3](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.2...@venndr/express-embed-request-verifier@1.0.3) (2025-02-11)
+
+
+### Features
+
+* **express/webhook-verifier:** include copyright from base64-url pkg ([0290342](https://github-mg/venndr/node-sdk/commit/0290342e297fa15463fd517e4821d630ce1d4ba0))
+
+
+
+
+
 ## 1.0.2 (2024-09-04)
 
 
