@@ -30,12 +30,12 @@ interface VerifierOptions {
 
 ```typescript
 import express from "express";
-import { keyFetcher } from "@venndr/express-public-key-fetcher";
-import { verifyEmbedRequest } from "@venndr/embed-request-verifier";
+import { keyFetcher } from "@venndr/public-key-fetcher";
+import { verifyEmbedRequest } from "@venndr/express-embed-request-verifier";
 
 const app = express();
 
-const embedVerifier = verifyEmbedRequest(keyFetcher);
+const embedVerifier = verifyEmbedRequest(keyFetcher());
 
 app.get("/embed", embedVerifier, (_, r) => {
 	console.log("received valid embed request");
