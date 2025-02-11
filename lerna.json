@@ -7,9 +7,11 @@
   ],
   "command": {
     "publish": {
+      "allowBranch": "main",
       "conventionalCommits": true
     },
     "version": {
+      "allowBranch": "main",
       "conventionalCommits": true
     }
   }
