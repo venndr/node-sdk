@@ -7,6 +7,9 @@
     "dist/*"
   ],
   "homepage": "https://github.com/venndr/node-sdk/blob/main/packages/express/embed-verifier/README.md",
+  "repository": {
+    "url": "https://github.com/venndr/node-sdk"
+  },
   "publishConfig": {
     "access": "public"
   },
