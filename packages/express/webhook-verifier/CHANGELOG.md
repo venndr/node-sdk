@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [1.1.6](https://github.com/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.5...@venndr/express-webhook-verifier@1.1.6) (2025-02-14)
+
+**Note:** Version bump only for package @venndr/express-webhook-verifier
+
+
+
+
+
 ## [1.1.5](https://github-mg/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.4...@venndr/express-webhook-verifier@1.1.5) (2025-02-14)
 
 **Note:** Version bump only for package @venndr/express-webhook-verifier
