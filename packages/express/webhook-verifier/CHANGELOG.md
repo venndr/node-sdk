@@ -11,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.5](https://github-mg/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.4...@venndr/express-webhook-verifier@1.1.5) (2025-02-14)
+## [1.1.5](https://github.com/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.4...@venndr/express-webhook-verifier@1.1.5) (2025-02-14)
 
 **Note:** Version bump only for package @venndr/express-webhook-verifier
 
@@ -19,7 +19,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.4](https://github-mg/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.3...@venndr/express-webhook-verifier@1.1.4) (2025-02-14)
+## [1.1.4](https://github.com/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.3...@venndr/express-webhook-verifier@1.1.4) (2025-02-14)
 
 **Note:** Version bump only for package @venndr/express-webhook-verifier
 
@@ -27,7 +27,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.3](https://github-mg/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.2...@venndr/express-webhook-verifier@1.1.3) (2025-02-11)
+## [1.1.3](https://github.com/venndr/node-sdk/compare/@venndr/express-webhook-verifier@1.1.2...@venndr/express-webhook-verifier@1.1.3) (2025-02-11)
 
 **Note:** Version bump only for package @venndr/express-webhook-verifier
 

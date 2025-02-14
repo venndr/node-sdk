@@ -11,7 +11,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.2](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.1.1...@venndr/express-embed-request-verifier@1.1.2) (2025-02-14)
+## [1.1.2](https://github.com/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.1.1...@venndr/express-embed-request-verifier@1.1.2) (2025-02-14)
 
 **Note:** Version bump only for package @venndr/express-embed-request-verifier
 
@@ -19,7 +19,7 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-## [1.1.1](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.1.0...@venndr/express-embed-request-verifier@1.1.1) (2025-02-14)
+## [1.1.1](https://github.com/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.1.0...@venndr/express-embed-request-verifier@1.1.1) (2025-02-14)
 
 **Note:** Version bump only for package @venndr/express-embed-request-verifier
 
@@ -27,23 +27,23 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 
 
-# [1.1.0](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.3...@venndr/express-embed-request-verifier@1.1.0) (2025-02-14)
+# [1.1.0](https://github.com/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.3...@venndr/express-embed-request-verifier@1.1.0) (2025-02-14)
 
 
 ### Features
 
-* **express/embed-verifier:** use forwarded host header when present ([09206bc](https://github-mg/venndr/node-sdk/commit/09206bc9946119f129c16d94f15bffff80bc5c99))
+* **express/embed-verifier:** use forwarded host header when present ([09206bc](https://github.com/venndr/node-sdk/commit/09206bc9946119f129c16d94f15bffff80bc5c99))
 
 
 
 
 
-## [1.0.3](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.2...@venndr/express-embed-request-verifier@1.0.3) (2025-02-11)
+## [1.0.3](https://github.com/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.2...@venndr/express-embed-request-verifier@1.0.3) (2025-02-11)
 
 
 ### Features
 
-* **express/webhook-verifier:** include copyright from base64-url pkg ([0290342](https://github-mg/venndr/node-sdk/commit/0290342e297fa15463fd517e4821d630ce1d4ba0))
+* **express/webhook-verifier:** include copyright from base64-url pkg ([0290342](https://github.com/venndr/node-sdk/commit/0290342e297fa15463fd517e4821d630ce1d4ba0))
 
 
 
