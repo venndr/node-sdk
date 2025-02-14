@@ -12,7 +12,6 @@
     "prebuild": "npm test",
     "build": "tsc",
     "prepublish": "npm run build",
-    "publish": "npm publish --public",
     "prerelease": "npm run build",
     "release": "npm publish --public",
     "preversion": "npm test"
@@ -37,5 +36,6 @@
     "prettier": "^3.3.3",
     "ts-jest": "^29.2.5",
     "typescript": "^5.5.4"
-  }
+  },
+  "gitHead": "6345b59f4d640416882b6b2530a3df7efe6c9997"
 }
