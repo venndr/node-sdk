@@ -3,6 +3,17 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [1.1.0](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.3...@venndr/express-embed-request-verifier@1.1.0) (2025-02-14)
+
+
+### Features
+
+* **express/embed-verifier:** use forwarded host header when present ([09206bc](https://github-mg/venndr/node-sdk/commit/09206bc9946119f129c16d94f15bffff80bc5c99))
+
+
+
+
+
 ## [1.0.3](https://github-mg/venndr/node-sdk/compare/@venndr/express-embed-request-verifier@1.0.2...@venndr/express-embed-request-verifier@1.0.3) (2025-02-11)
 
 
