@@ -29,7 +29,9 @@ export const verifyEmbedRequest = (fetchKey: KeyFetcher, options: VerifierOption
     return fetchKey(sigv)
       .then((pubkey) => {
         const remainder = rq.originalUrl.slice(0, rq.originalUrl.lastIndexOf("&"));
-        const message = Buffer.from(`https://${rq.headers.host}${remainder}`);
+        const message = Buffer.from(
+          `https://${rq.headers["x-forwarded-host"] ?? rq.headers.host}${remainder}`,
+        );
         const sig = Buffer.from(unescapeBase64url(rq.query.sig as string), "base64");
         const authn = crypto.verify("sha256", message, pubkey, sig);
 

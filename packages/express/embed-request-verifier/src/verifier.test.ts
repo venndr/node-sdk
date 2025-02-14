@@ -161,4 +161,53 @@ describe("embed requests verifier", () => {
     expect(nextFn).toHaveBeenCalledTimes(1);
     expect(nextFn.mock.calls[0]).toEqual([]);
   });
+
+  test("passes for proxied requests", async () => {
+    jest.useFakeTimers().setSystemTime(new Date(sigt.getTime() + 3000));
+
+    const validURL = {
+      headers: {
+        "x-forwarded-host": "example.com",
+        host: "app-server.internal-vpc.com",
+      },
+      originalUrl:
+        "/embed?sigt=1725194096&sigv=2022-02-14&sig=IlRk9NgyytUUSDaEnQ_7zJYfWZi6hJAskjTzwGJ-PVWcMUIA-7XotshTqIq-Vt8b896O4umVEhcBnoRKVW9rDS-qkL5Aatc40PT012_TgEv7IPijfA3M9nz69Bjf37RIUkVwGD46CNpXcNkR2MTclx9zjeMFaeMtLtYQDG7Vua_F1Usnasj4rbPdALEpeMqA3Bmf_yvjRSBdMFoJckQ9lZ-YvLUSikI46zVpSwmyHCF0xjWMI9JgUdIpDG1yS75OKtYHSQnYd8KMqa5JJAiNj9SWehgVq2n-cZi0OGzcklil4GfcdKo13_GOyFv10NRfM2T0NSnIOomIcpf8ukweFQ",
+      host: "example.com",
+      path: "/embed",
+      protocol: "https",
+      query: {
+        sigt: "1725194096",
+        sigv: "2022-02-14",
+        sig: "IlRk9NgyytUUSDaEnQ_7zJYfWZi6hJAskjTzwGJ-PVWcMUIA-7XotshTqIq-Vt8b896O4umVEhcBnoRKVW9rDS-qkL5Aatc40PT012_TgEv7IPijfA3M9nz69Bjf37RIUkVwGD46CNpXcNkR2MTclx9zjeMFaeMtLtYQDG7Vua_F1Usnasj4rbPdALEpeMqA3Bmf_yvjRSBdMFoJckQ9lZ-YvLUSikI46zVpSwmyHCF0xjWMI9JgUdIpDG1yS75OKtYHSQnYd8KMqa5JJAiNj9SWehgVq2n-cZi0OGzcklil4GfcdKo13_GOyFv10NRfM2T0NSnIOomIcpf8ukweFQ",
+      },
+    };
+
+    const kf = jest.fn(dummyKeyFetcher);
+    const mw = verifyEmbedRequest(kf);
+
+    let mockRequest: Partial<ExRequest>;
+    let nextFn = jest.fn();
+
+    mockRequest = {
+      ...validURL,
+      is(x: string): string | false | null {
+        return x;
+      },
+      header: ((name: string): string | undefined => {
+        switch (name) {
+          case "host":
+            return validURL.headers.host;
+        }
+        return undefined;
+      }) as any,
+    };
+
+    await mw(mockRequest as any, null as any, nextFn);
+
+    expect(kf).toHaveBeenCalledTimes(1);
+    expect(kf).toHaveBeenCalledWith(validURL.query.sigv);
+    expect(nextFn).toHaveBeenCalled();
+    expect(nextFn).toHaveBeenCalledTimes(1);
+    expect(nextFn.mock.calls[0]).toEqual([]);
+  });
 });
