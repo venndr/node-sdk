@@ -7,7 +7,7 @@
     "packages/universal/public-key-fetcher"
   ],
   "devDependencies": {
-    "lerna": "^8.0.2"
+    "lerna": "^8.2.3"
   },
   "scripts": {
     "lerna": "lerna"
