@@ -31,21 +31,21 @@
   "author": "Music Glue Tech <tech@musicglue.com>",
   "license": "ISC",
   "dependencies": {
-    "@venndr/public-key-fetcher": "^1.0.5",
+    "@venndr/public-key-fetcher": "^1.0.4",
     "express": ">=4.17.0"
   },
   "devDependencies": {
-    "@jest/globals": "^29.7.0",
-    "@tsconfig/node20": "^20.1.4",
+    "@jest/globals": "^30.1.1",
+    "@tsconfig/node24": "^24.0.1",
     "@tsconfig/strictest": "^2.0.2",
     "@types/express": "^4.17.21",
-    "@types/jest": "^29.5.10",
-    "@types/node": "^22.13.1",
-    "jest": "^29.7.0",
-    "prettier": "^3.1.0",
-    "ts-jest": "^29.1.1",
+    "@types/jest": "^30.0.0",
+    "@types/node": "^24.3.0",
+    "jest": "^30.1.1",
+    "prettier": "^3.6.2",
+    "ts-jest": "^29.4.1",
     "ts-node": "^10.9.2",
-    "typescript": "^5.3.2"
+    "typescript": "^5.9.2"
   },
   "gitHead": "6345b59f4d640416882b6b2530a3df7efe6c9997"
 }
