@@ -10,6 +10,10 @@ import * as crypto from "crypto";
 import { KeyFetcher } from "@venndr/public-key-fetcher";
 import { Request as ExRequest, Response as ExResponse, NextFunction } from "express";
 
+if (process.env.UNSAFE_SKIP_WEBHOOK_VERIFY != null) {
+  console.warn("UNSAFE_SKIP_WEBHOOK_VERIFY is set, webhook verification is not enforced");
+}
+
 const messageHeaders = [
   "venndr-id",
   "venndr-key-version",
@@ -28,37 +32,32 @@ export const verifyWebhookSignature =
 
     if (process.env.UNSAFE_SKIP_WEBHOOK_VERIFY != null) {
       req.body = JSON.parse((req.body as Buffer).toString());
-      next();
-      return;
+      return next();
     }
 
     if (!req.is("application/json")) {
-      next(
+      return next(
         new Error(`invalid webhook: expected application/json, got: ${req.header("content-type")}`),
       );
-      return;
     }
 
     const keyVersion = req.header("venndr-key-version");
 
     if (!keyVersion) {
-      next(new Error("invalid webhook: missing venndr-key-version"));
-      return;
+      return next(new Error("invalid webhook: missing venndr-key-version"));
     }
 
     const body = req.body as Buffer;
 
     if (!body || body.length == 0) {
-      next(new Error("invalid webhook: empty payload"));
-      return;
+      return next(new Error("invalid webhook: empty payload"));
     }
 
     fetchKey(keyVersion)
       .then((key) => {
         const signature = Buffer.from(req.header("venndr-signature") ?? "", "base64");
-        const message = Buffer.concat(
-          messageHeaders.map((h) => Buffer.from(String(req.header(h)))).concat([body]),
-        );
+        const headers = messageHeaders.map<Buffer>((h) => Buffer.from(String(req.header(h))));
+        const message = Buffer.concat(headers.concat([body]));
 
         if (!crypto.verify("sha256", message, key, signature)) {
           next(new Error("invalid webhook: signature validation failed"));
