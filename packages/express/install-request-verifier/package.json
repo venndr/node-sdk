@@ -1,6 +1,6 @@
 {
   "name": "@venndr/install-request-verifier",
-  "version": "1.0.0",
+  "version": "0.0.0",
   "description": "Express middleware for verifying Venndr app install request signatures",
   "main": "dist/verifier.js",
   "files": [
