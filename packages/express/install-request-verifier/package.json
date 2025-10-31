@@ -6,7 +6,7 @@
   "files": [
     "dist/*"
   ],
-  "homepage": "https://github.com/venndr/node-sdk/blob/main/packages/express/install-verifier/README.md",
+  "homepage": "https://github.com/venndr/node-sdk/blob/main/packages/express/install-request-verifier/README.md",
   "repository": {
     "url": "https://github.com/venndr/node-sdk"
   },
